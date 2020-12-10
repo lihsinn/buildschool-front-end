@@ -1,0 +1,302 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    width: 100%;
+    position: relative;
+    
+}
+.section-block{
+    padding: 70px 0px;
+}
+.container{
+    width: 90%;
+    margin: auto;
+    
+}
+
+
+.main-title{
+    text-align: center;
+}
+nav{
+    width: 100%;
+    height: 100px;
+    background:white;
+    box-sizing: border-box;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    z-index: 1;
+
+    
+    justify-content: space-around;
+    padding: 0 10px;
+    
+}
+nav .navlist{
+    width: 100%;
+    display: flex;
+    
+    justify-content:flex-start;
+    position: relative;
+}
+
+nav .navlist a{
+    padding: 0 20px;
+    text-decoration:none;
+    font-size:16px;
+    color:black;
+    position: relative;
+    
+}
+nav .navlist .new1{
+    background:#48c8fd;
+    position: absolute;
+    bottom:100%;
+    right:0px;
+    font-size:10px;
+    padding: 2px 10px;
+    color:white;
+    font-weight:bold;
+    
+}
+nav .navlist .new2{
+    
+    background:#48c8fd;
+    position: absolute;
+    bottom:100%;
+    right:0px;
+    font-size:10px;
+    padding: 2px 10px;
+    color:white;
+    font-weight:bold;
+}
+.arrow{
+    width:0px;
+    height:0px;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #48c8fd;
+
+}
+nav .navlist .new1 .arrow{
+    position: absolute;
+    left: 12px;
+    top:100%;
+}
+nav .navlist .new2 .arrow{
+    position: absolute;
+    left: 12px;
+    top:100%;
+}
+
+
+nav .item{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+nav .item img {
+    padding: 10px;
+}
+
+
+
+.info{
+    padding-top: 100px;
+    
+}
+.info .container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.info .main{
+    width: 900px;
+    color: black;
+    padding:10px;
+    margin:100px 0px 150px 80px;
+    
+}
+.info .main p { 
+    font-size:20px;
+    padding-bottom: 25px;
+}
+.info .container{
+    display: flex;
+    background-image: url(./assets/asset\ 7.png);
+    background-size: cover;
+}
+h1{
+    font-size:60px;
+    font-weight: 100;
+    padding-bottom: 25px;
+
+    
+}
+.button{
+    width: 100px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    background: black;
+    color:white;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+    
+}
+.content{
+    display: flex;
+    justify-content: center;
+}
+.content .col{
+    width: 370px;
+    margin: 15px;
+}
+.content .pic img{
+    width: 100%;
+}
+.content .pic + .text-list{
+    order: -1;
+    text-align: right;
+}
+.content .text-list .text-item{
+    margin-bottom: 30px;
+}
+
+.content .text-list .text-item h3{
+    font-size: 22px;
+    padding:18px 0;
+
+}
+.content .text-list .text-item p{
+    color:rgb(177, 177, 177);
+
+}
+
+.list-group{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+}
+.list-group .list-item img{
+    
+    vertical-align: top;
+    opacity: 1;
+    transition: .5s;
+}
+.list-group .list-item:hover img{
+    opacity: .5;
+}
+
+.benifit .main-title h2{
+    font-size: 38px;
+    color:#518432;
+    line-height: 50px;
+    margin-bottom: 40px !important;
+}
+.benifit .main-title p{
+    font-size: 14px;
+    color:rgb(177, 177, 177);
+    margin-bottom: 40px ;
+}
+
+.staffPick h2{
+    color:#518432;
+    font-size: 35px;
+}
+
+.staffPick .list-group {
+    justify-content: space-evenly;
+    width:100%;
+    
+    
+}
+
+.staffPick .list-group .list-item img{
+    width: 350px;
+    margin:10px;
+    
+}
+.staffPick .list-group .list-item .txt{
+    width: 100%;
+    text-align: center;
+    margin:20px;
+    
+}
+
+
+.shopIns .main-title div{
+    font-size: 70px;
+}
+
+.shopIns .list-group .list-item{ 
+    width: 100%px;
+    margin: 15px;
+    background-color: #000; 
+}
+
+
+
+.footer-nav ul{
+    display: flex;
+    justify-content: center;
+}
+.footer-nav li{
+    margin: 0 30px;
+    position: relative;
+}
+.footer-nav li + li:before{
+    content: '';
+    height: 1px;
+    width: 50px;
+    background-color: #666;
+    position: absolute;
+    left: -55px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.footer-nav a{
+    text-decoration: none;
+    color: #666;
+}
+.footer-social{}
+
+.footer-social ul{
+    display: flex;
+    justify-content: center;
+}
+.footer-social li{
+    margin: 0 10px;
+}
+.footer-social a{
+    display: block;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+}
+/* .foot{
+    display: flex;
+    align-items: center;
+} */
+
+.footer-logo{
+    display: flex;
+    justify-content: center;
+}
+
+.shopIns .container p{
+    margin: 0 auto;
+}
