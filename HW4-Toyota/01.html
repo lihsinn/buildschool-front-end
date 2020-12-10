@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body {
+            font-family: 微軟正黑體 !important;
+        }
+
+        .wrapper {
+           
+    
+            position: relative;
+            display: flex;
+            
+            flex-direction: column;
+            align-items: center;
+
+            background: rgb(255, 255, 255);
+        }
+
+        .boxodd {
+            width: 956px;
+            height: 713px;
+        }
+        .boxeven {
+            width: 956px;
+            height: 702px;
+        }
+
+        .box1 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .box2 {
+
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .box3 {
+            position: relative;
+            z-index: 3;
+            
+        }
+
+        .box4 {
+            position: relative;
+            z-index: 4;
+
+        }
+
+        .box5 {
+            position: relative;
+            z-index: 5;
+        }
+
+         /* ---------------- 奇數 ----------------*/
+        
+        .square {
+            width: 355px;
+            height: 388px;
+            overflow: hidden;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 3;
+        }
+
+        .square h1 {
+            font-size: 50px;
+            font-weight: 100;
+            height: 30%;
+            background: rgb(175, 0, 0);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+        .square .text {
+            height: 70%;
+            background: black;
+            color: white;
+
+
+        }
+
+        .square .text h3 {
+            font-size: 30px;
+            padding: 20px 20px 0px;
+        }
+
+        .square .text p {
+            font-size: 20px;
+            padding: 20px;
+            line-height: 24px;
+        }
+
+        .gray{
+            width: 437px;
+            height: 290px;
+            background: rgb(233, 233, 233);
+            position: absolute;
+            top: 35px;
+            left: 520px;
+        }
+        .pic img {
+            position: absolute;
+            top: 134px;
+            left: 182px;
+            z-index: 2;
+        }
+
+        .TXT {
+            width: 682px;
+            height: 216px;
+            background: #ccc;
+            padding: 10px;
+            font-size: 10spx;
+
+            position: absolute;
+            top: 537px;
+            left: 45px;
+            z-index: 3;
+
+
+        }
+
+        .TXT p {
+            padding: 5px 0px;
+
+        }
+
+        .TXT p:nth-child(1) {
+            font-size: 18px;
+            font-weight: 900;
+            color: rgb(175, 0, 0);
+        }
+
+        .TXT p:nth-child(1):after {
+            content: " —————————————————————";
+        }
+
+        .TXT p:nth-child(even) {
+            font-size: 14px;
+            font-weight: 900;
+            color: white;
+            width: 15%;
+            text-align: center;
+            background: black;
+
+
+        }
+
+
+
+        /* ---------------- 偶數 ----------------*/
+        .square2 {
+            width: 355px;
+            height: 388px;
+            overflow: hidden;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            z-index: 3;
+        }
+
+        .square2 h1 {
+            font-size: 50px;
+            font-weight: 100;
+            height: 30%;
+            background: rgb(175, 0, 0);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+        .square2 .text2 {
+            height: 70%;
+            background: black;
+            color: white;
+
+
+        }
+
+        .square2 .text2 h3 {
+            font-size: 30px;
+            padding: 20px 20px 0px;
+        }
+
+        .square2 .text2 p {
+            font-size: 20px;
+            padding: 20px;
+            line-height: 24px;
+        }
+
+        .gray2{
+            width: 518px;
+            height: 412px;
+            background:  rgb(233, 233, 233);
+            position: absolute;
+            top: 60px;
+            right: 160px;
+        }
+
+        .pic2 img {
+            position: absolute;
+            top: 140px;
+            right:260px;
+            z-index: 2;
+        }
+
+        .TXT2 {
+            width: 682px;
+            height: 180px;
+            background: #ccc;
+            padding: 10px;
+            font-size: 10spx;
+
+            position: absolute;
+            top: 537px;
+            right:0px;
+            z-index: 3;
+
+
+        }
+
+        .TXT2 p {
+            padding: 5px 0px;
+
+        }
+
+        .TXT2 p:nth-child(1) {
+            font-size: 18px;
+            font-weight: 900;
+            color: rgb(175, 0, 0);
+        }
+
+        .TXT2 p:nth-child(1):after {
+            content: " —————————————————————";
+        }
+
+        .TXT2 p:nth-child(even) {
+            font-size: 14px;
+            font-weight: 900;
+            color: white;
+            width: 15%;
+            text-align: center;
+            background: black;
+
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="boxodd box1">
+            <div class="gray"></div>
+            <div class="square">
+                <h1>01操控樂趣</h1>
+                <div class="text">
+                    <h3>人人滿意的駕駛體驗</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id at cumque nobis nulla voluptatibus
+                        autem veniam laboriosam nostrum! Libero debitis aut esse totam nobis quidem voluptatem in
+                        suscipit quaerat porro.</p>
+                </div>
+            </div>
+            <div class="pic">
+                <img src="https://picsum.photos/695/430/?random=22">
+            </div>
+            <div class="TXT">
+                <p>因為我們做了這些革新</p>
+                <p>低重心設計</p>
+                <p>Lor
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+            </div>
+        </div>
+
+        <div class="boxeven box2">
+            <div class="gray2"></div>
+            <div class="square2">
+                <h1>02安全守護</h1>
+                <div class="text2">
+                    <h3>人人滿意的駕駛體驗</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id at cumque nobis nulla voluptatibus
+                        autem veniam laboriosam nostrum! Libero debitis aut esse totam nobis quidem voluptatem in
+                        suscipit quaerat porro.</p>
+                </div>
+            </div>
+            <div class="pic2">
+                <img src="https://picsum.photos/695/430/?random=3">
+            </div>
+            <div class="TXT2">
+                <p>因為我們做了這些革新</p>
+                <p>低重心設計</p>
+                <p>similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+                <p>低重心設計</p>
+                <p>Lorem t. Laborum modi similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+
+                
+            </div>
+        </div>
+
+        <div class="boxodd box3">
+            <div class="gray"></div>
+            <div class="square">
+                <h1>03乘坐舒適</h1>
+                <div class="text">
+                    <h3>人人滿意的駕駛體驗</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id at cumque nobis nulla voluptatibus
+                        autem veniam laboriosam nostrum! Libero debitis aut esse totam nobis quidem voluptatem in
+                        suscipit quaerat porro.</p>
+                </div>
+            </div>
+            <div class="pic">
+                <img src="https://picsum.photos/695/430/?random=34">
+            </div>
+            <div class="TXT">
+                <p>因為我們做了這些革新</p>
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+            </div>
+        </div>
+
+        <div class="boxeven box4">
+            <div class="gray2"></div>
+            <div class="square2">
+                <h1>04以人為本</h1>
+                <div class="text2">
+                    <h3>人人滿意的駕駛體驗</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id at cumque nobis nulla voluptatibus
+                        autem veniam laboriosam nostrum! Libero debitis aut esse totam nobis quidem voluptatem in
+                        suscipit quaerat porro.</p>
+                </div>
+            </div>
+            <div class="pic2">
+                <img src="https://picsum.photos/695/430/?random=11">
+            </div>
+            <div class="TXT2">
+                <p>因為我們做了這些革新</p>
+                <p>低重心設計</p>
+                <p>similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+                <p>低重心設計</p>
+                <p>Lorem t. Laborum modi similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+
+                
+            </div>
+        </div>
+
+        <div class="boxodd box5">
+            <div class="gray"></div>
+            <div class="square">
+                <h1>05引以為傲</h1>
+                <div class="text">
+                    <h3>人人滿意的駕駛體驗</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id at cumque nobis nulla voluptatibus
+                        autem veniam laboriosam nostrum! Libero debitis aut esse totam nobis quidem voluptatem in
+                        suscipit quaerat porro.</p>
+                </div>
+            </div>
+            <div class="pic">
+                <img src="https://picsum.photos/695/430/?random=21">
+            </div>
+            <div class="TXT">
+                <p>因為我們做了這些革新</p>
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+
+                <p>低重心設計</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum modi exercitationem blanditiis
+                    similique sequi velit aperiam iusto. Nihil, obcaecati itaque.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

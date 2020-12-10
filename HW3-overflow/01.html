@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        body{
+           
+           
+            font-family: Arial;
+
+        }
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            background: black;
+            
+            margin:auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+        }
+
+        .item {
+            width: 200px;
+            height: 300px;
+            border: 10px solid rgb(197, 0, 0);
+            
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .item .pic img {
+            width: 100%;
+            height: 100%;
+            
+            vertical-align: top;
+        }
+
+        .item .text {
+            
+            
+            width: 100%;
+            height: 20%;
+            position: absolute;
+
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+
+
+            transition: opacity 0.5s;
+            cursor: pointer;
+            color: white;
+            transition: .5s;
+
+            text-align: center;
+
+        }
+
+        .item .text p {
+            opacity: 0;
+        }
+
+        .item .text h1 {
+            padding: 20px 0px 10px 0px;
+        }
+
+        .item:hover .text {
+            height: 50%;
+            opacity: 1;
+
+        }
+
+        .item:hover .text p {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="item">
+            <div class="pic">
+                <img src="https://picsum.photos/300/500/?random=1">
+            </div>
+            <div class="text">
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum impedit aspernatur voluptas omnis cum,
+                    non
+                    corrupti. Tem! Sunt.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
