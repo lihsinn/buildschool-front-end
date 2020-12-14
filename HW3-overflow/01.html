@@ -16,42 +16,95 @@
         .wrap {
             width: 100%;
             height: 100vh;
-            background: black;
+            background: rgb(32, 26, 87);
             
-            margin:auto;
+           
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+        }
+
+
+        .wrap .title{
+            width: 30%;
+
+            font-size: 80px;
+            font-weight: 900;
+            color: #eee;
+            
+            line-height: 100px;
+
+            transform: scale(1);
+            transform-origin: right;
+            transition: .5s;
+            text-align: right;
+
+
+        }
+        .wrap .title:hover{
+            font-weight: 900;
+            transform: scale(1.3);
+            color: rgb(255, 166, 0);
+
+        }
+
+        .wrap .box{
+            width: 70%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            
-
         }
 
         .item {
+
+            margin:10px;
             width: 200px;
             height: 300px;
-            border: 10px solid rgb(197, 0, 0);
+            border-radius: 10px;
+            border:10px solid transparent;
             
+            
+
             position: relative;
             overflow: hidden;
 
+            transform: scale(1);
+            
+            transition: 1s;
+
+            box-shadow:1px 1px 10px rgba(0, 0, 0, 0.5);
+
         }
+       
+
+        .item:hover {
+            transform:  scale(1.3);
+            transform-origin: center;
+            position: relative;
+            z-index: 2;
+           
+
+        }
+
 
         .item .pic img {
             width: 100%;
-            height: 100%;
             
+            background-size:cover;
             vertical-align: top;
         }
 
         .item .text {
             
             
+            
+
             width: 100%;
             height: 20%;
             position: absolute;
 
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(255, 136, 0, 0.4);
 
 
             transition: opacity 0.5s;
@@ -63,18 +116,30 @@
 
         }
 
+        .item:nth-child(2) .text{
+            background-color: rgba(255, 0, 0, 0.4);
+        }
+
+        .item:nth-child(3) .text{
+            background-color: rgba(255, 251, 0, 0.4);
+        }
+
         .item .text p {
             opacity: 0;
         }
 
         .item .text h1 {
+            font-weight: 900;
             padding: 20px 0px 10px 0px;
         }
 
         .item:hover .text {
-            height: 50%;
+            height: 100%;
             opacity: 1;
 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .item:hover .text p {
@@ -84,16 +149,42 @@
 </head>
 
 <body>
+    
     <div class="wrap">
-        <div class="item">
-            <div class="pic">
-                <img src="https://picsum.photos/300/500/?random=1">
+        <h1 class="title">保證<br>英語</h1>
+        <div class="box">
+            <div class="item">
+                <div class="pic">
+                    <img src="image/01.jpg">
+                </div>
+                <div class="text">
+                    <h1>IELS</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum impedit aspernatur voluptas omnis cum,
+                        non
+                        corrupti. Tem! Sunt.</p>
+                </div>
             </div>
-            <div class="text">
-                <h1>Title</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum impedit aspernatur voluptas omnis cum,
-                    non
-                    corrupti. Tem! Sunt.</p>
+            <div class="item">
+                <div class="pic">
+                    <img src="image/02.jpg">
+                </div>
+                <div class="text">
+                    <h1>TOEIC</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum impedit aspernatur voluptas omnis cum,
+                        non
+                        corrupti. Tem! Sunt.</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="pic">
+                    <img src="image/03.jpg">
+                </div>
+                <div class="text">
+                    <h1>TOFEL</h1>
+                    <p>Lorem ipsum doloror sitor sitor sitor sitor sitor sit sit amet consectetur adipisicing elit. Ipsum impedit aspernatur voluptas omnis cum,
+                        non
+                        corrupti. Tem! Sunt.</p>
+                </div>
             </div>
         </div>
     </div>
