@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+            list-style: none;
+        }
+        body{
+            background: rgb(255, 230, 0);
+        }
+        button{
+            
+            
+            border-radius: 10px;
+            border:3px solid rgb(0, 19, 189);
+            background:  rgb(0, 19, 189);
+            box-shadow: 1px 1px 5px gray;
+            color:  #ffe600;
+            font-family: "微軟正黑體";
+            font-size: 20px;
+            font-weight:900;
+            padding: 10px ;
+
+            margin: 0 10px;
+        }
+        button:hover{
+            
+            
+            border-radius: 10px;
+            border:3px solid#ffffff;
+            background: #ffffff;
+            box-shadow: 1px 1px 5px gray;
+            color:   rgb(0, 19, 189);
+            font-family: "微軟正黑體";
+            font-size: 20px;
+            font-weight:900;
+            padding: 10px ;
+
+            margin: 0 10px;
+        }
+        h1{
+            text-align: center;
+            background: rgb(0, 19, 189);
+            padding: 10px 0;
+        }
+        .box{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            
+        }
+        #container{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" alt="" height="80px"></h1>    
+
+    <div class="box">
+        <button onclick='fetchPokemon()'>載入寶可夢圖鑑列表</button>
+        <button onclick='fetchPokemon_appendChild()'>載入寶可夢圖鑑列表appendChild()</button>
+        <button onclick='reset()'>Reset</button>
+    </div>
+
+
+    
+    <div id="container"></div>
+
+    
+
+
+    <script>
+        var container = document.getElementById('container');
+
+        //整個element都ready
+        window.onload = appendPokemon();
+
+
+        // -------建立一張圖片---------
+        function appendPokemon(){
+            let img = document.createElement('img');
+            img.setAttribute('src','https://assets.pokemon.com/assets/cms2/img/pokedex/detail/002.png');
+            container.appendChild(img);
+        }
+
+        // -------利用Element, innerHTML 設定HTML字串---------
+
+        function fetchPokemon(){
+            
+            //定義一個空字串pokemons
+            let pokemons='';
+
+            for(let i =1 ; i<890;i++){
+                fileName = i.toString().padStart(3,'0');//想辦法變成三位數，不是三位數前面要補0
+                // pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+                // pokemonImg = `<img src=${pathFile}>`;
+                pokemonImg = `<img src='https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png'>`;
+                pokemons += pokemonImg;
+                //debugger;
+            }
+
+            //把塞在pokemons裡面的東西，再放進container這個容器裡面
+            container.innerHTML = pokemons;
+        }
+
+
+        
+
+
+        function fetchPokemon_appendChild(){
+            
+            for(let i =1 ; i<890;i++){
+                let pokemons = document.createElement("img");
+                let fileName = i.toString().padStart(3,'0');
+                pokemons.setAttribute('src',`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`);
+                container.appendChild(pokemons);
+            }
+        }
+
+
+        function reset(){
+            container.innerHTML = "";
+        }
+        
+    </script>
+</body>
+</html>
