@@ -16,9 +16,9 @@
             list-style: none;
 
         }
-        
+
         body {
-            background:#fff;
+            background: #fff;
             font-family: 'Roboto';
             display: flex;
             justify-content: center;
@@ -27,9 +27,10 @@
 
         .container {
             max-width: 1200px;
-            margin:auto;
+            margin: auto;
             padding: 10px;
         }
+
         .row {
             display: flex;
             flex-wrap: wrap;
@@ -37,65 +38,71 @@
 
         .card-header {
             background: #fff;
-            color:black;
-            position:relative;
+            color: black;
+            position: relative;
             height: 50px;
             font-size: 20px;
-            padding: 0px 20px 0px 0px ;
+            padding: 0px 20px 0px 0px;
             display: flex;
 
         }
-        .prevandnextMonth{
+
+        .prevandnextMonth {
             padding: 0 20px 0 10px;
         }
 
         .card-header .prev,
         .card-header .next {
             padding: 4px 10px 4px;
-            color:#666;
+            color: #666;
             cursor: pointer;
         }
+
         .card-header .prev:hover,
         .card-header .next:hover {
             border-radius: 50px;
             background-color: rgb(231, 231, 231);
         }
 
-        #monthAndYear{
+        #monthAndYear {
             font-family: "微軟正黑體";
         }
-        .card-body{
+
+        .card-body {
             background: #ffffff;
-            width: 1000px;      
-            height: 600px;   
+            width: 1000px;
+            height: 600px;
         }
+
         .calendar-body {
             cursor: pointer;
         }
+
         /* 週 */
         .card-body .week span {
             font-size: 13px;
-            color:#bbb;
+            color: #bbb;
             display: inline-block;
-            padding-top:5px ;
-            
+            padding-top: 5px;
+
         }
 
         /* 日期格子的高 */
-        .card-body .dates{
+        .card-body .dates {
             height: 20%;
-            
+
         }
+
         /* 事件欄 */
-        .event{
-            
+        .event {
+
             height: 80%;
         }
 
         /* 日期 */
-        .card-body .dates span{
+        .card-body .dates span {
             margin: 0 auto;
-            color:#222;
+            color: #222;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -105,29 +112,32 @@
             font-family: "微軟正黑體";
             cursor: pointer;
         }
+
         .card-body .dates span:hover:not(.todydate) {
-            background-color:#ddd;
+            background-color: #ddd;
             border-radius: 50px;
-            
+
         }
+
         /* 今天日期樣式 */
-        .todydate{
+        .todydate {
             background-color: #4285F4;
             width: 10px;
             border-radius: 50px;
-            color:#fff !important;
+            color: #fff !important;
         }
-        .todydate:hover{
+
+        .todydate:hover {
             background-color: #1c62d3;
             width: 10px;
             border-radius: 50px;
-            color:#fff !important;
+            color: #fff !important;
         }
-  
-        
-        
-    
-        .table{
+
+
+
+
+        .table {
             border: #ccc;
             border-collapse: collapse;
             width: 100%;
@@ -137,48 +147,49 @@
         }
 
         th {
-            
+
             background: #fff;
-            border-top:1px solid#ccc; 
-            border-left: 1px solid#ccc; 
-            border-right:1px solid#ccc; 
+            border-top: 1px solid#ccc;
+            border-left: 1px solid#ccc;
+            border-right: 1px solid#ccc;
             border-bottom: none;
         }
+
         td {
             padding: 0.5em;
             background: #fff;
-            border-top:none; 
-            border-left: 1px solid#ccc; 
-            border-right:1px solid#ccc; 
-            border-bottom:1px solid#ccc;
+            border-top: none;
+            border-left: 1px solid#ccc;
+            border-right: 1px solid#ccc;
+            border-bottom: 1px solid#ccc;
         }
-        td:nth-child(1){
+
+        td:nth-child(1) {
             height: 30px;
         }
 
-        .table thead{
+        .table thead {
             border-radius: 5px 0 0 0;
             border: none;
         }
-        
-        .goToday{
+
+        .goToday {
             display: flex;
             justify-content: center;
             width: 100px;
             height: 30px;
-    
+
             border-radius: 5px;
-            color:#ccc;
+            color: #ccc;
             border: 1px solid #ccc;
             cursor: pointer;
         }
-       
 
-        .showEvent:hover{
+
+        .showEvent:hover {
             content: "Add Schedule";
             background-color: rgba(88, 124, 255, 0.3);
         }
-       
     </style>
 </head>
 
@@ -198,7 +209,7 @@
                         <span><strong id="monthAndYear">Month And Year</strong></span>
                     </div>
                     <div class="card-body">
-                        <table class="table" cellspacing="0" border="1" >
+                        <table class="table" cellspacing="0" border="1">
                             <thead class="week">
                                 <tr>
                                     <th><span>週日</span></th>
@@ -221,62 +232,23 @@
 
 
 
-    <!-- The Modal -->
-    <!-- <div id="myModal" class="modal"> -->
-
-        <!-- Modal content -->
-        <!-- <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Modal Header</h2>
-            </div>
-            <div class="modal-body">
-                <p>Edit my schedule</p>
-                <input type="time" id="time">
-                <input type="text" id="todo">
-            </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
-        </div>
-
-    </div> -->
-
-
-    <!-- <div class="modal" tabindex="-1" id="modal-content">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header m-s-auto">
-              <h5 class="modal-title">Schedule Management</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Edit my schedule</p>
-              <input type="time" id="time">
-              <input type="text" id="todo">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="saveBtn" onclick="saveBtn()">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
     <script type="module">
         //import module
-        import {$g,$c,$ctn} from "../Modules/helpers.js"
+        import {
+            $g,
+            $c,
+            $ctn
+        } from "../Modules/helpers.js"
 
         let today = new Date();
         let currentMonth = today.getMonth();
@@ -291,7 +263,7 @@
         let goToday = $g('.goToday');
 
 
-        
+
         window.onload = function () {
             showCalendar(currentMonth, currentYear);
         }
@@ -312,7 +284,7 @@
             let calendarBody = $g('#calendar-body');
             calendarBody.innerHTML = '';
             //年月的內容置換為 = months[month=0:'Jan', 1:'Feb', 2:'Mar', 3:"Apr", 4:"May", 5:"June", 6:"July", 7:"Aug", 8:"Sep", 9:"Oct", 10:'Nov', 11:'Dec']
-            monthAndYear.innerHTML = year +"年"+months[month];
+            monthAndYear.innerHTML = year + "年" + months[month];
 
             //
             let date = 1;
@@ -320,13 +292,13 @@
 
             //i=0~5 :生出6週
             //let fDay = firstDayOfMonth ? (firstDayOfMonth - 1) : 6;
-            let fDay = firstDayOfMonth-1;
-                      //Math.floor回傳小於等於所給數字的最大整數。
+            let fDay = firstDayOfMonth - 1;
+            //Math.floor回傳小於等於所給數字的最大整數。
             let weeksNum = Math.floor((daysInMonth + fDay) / 7);
             //console.log("("+daysInMonth +"+"+ fDay+")" +"/"+7 +"="+weeksNum);
-            
 
-            for (let i = 0; i <weeksNum+1; i++) {
+
+            for (let i = 0; i < weeksNum + 1; i++) {
                 //生一個tr
                 let row = $c('tr');
 
@@ -378,7 +350,7 @@
 
         }
 
-        
+
 
 
 
@@ -386,7 +358,7 @@
             currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
             currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
             showCalendar(currentMonth, currentYear);
-          
+
         })
 
         next.addEventListener('click', function () {
@@ -402,70 +374,6 @@
         goToday.addEventListener('click', function () {
             showCalendar(today.getMonth(), today.getFullYear());
         });
-
-
-
-
-     
-
-        
-        // let myModal_Span = new bootstrap.Modal(document.getElementById('modal-content_span'), {keyboard: false})
-
-        // function saveBtn() {
-        //     time = document.getElementById('time').value;
-        //     todo = document.getElementById('todo').value;
-        //     if (time == "" || todo == "") {
-        //         alert("隢贝撓�交���枏�𠰴�颲虫�钅�!")
-        //         return;
-        //     }
-        //     SaveData();
-        //     refresh();
-        //     Load();
-        // }
-        // function saveEditedBtn() {
-        //     let time_span = document.getElementById("time_span").value;
-        //     let todo_span = document.getElementById("todo_span").value;
-        //     if (time_span == "" || todo_span == "") {
-        //         alert('隢贝撓�交���栞�笔�颲虫�钅�!');
-        //         return;
-        //     }
-        //     edit(targetId);
-        //     myModal_Span.hide();
-        //     refresh();
-        //     Load();
-        // }
-
-
-
-        // // -------Modal-------
-        // // Get the modal
-        // var modal = document.getElementById("myModal");
-
-        // // Get the button that opens the modal
-        // var btn = document.getElementById("myBtn");
-
-        // // Get the <span> element that closes the modal
-        // var span = document.getElementsByClassName("close")[0];
-
-        // // When the user clicks the button, open the modal 
-        // function showEvent() {
-        //     modal.style.display = "block";
-        // };
-
-
-        // // When the user clicks on <span> (x), close the modal
-        // span.onclick = function () {
-        //     modal.style.display = "none";
-        // }
-
-        // // When the user clicks anywhere outside of the modal, close it
-        // window.onclick = function (event) {
-        //     if (event.target == modal) {
-        //         modal.style.display = "none";
-        //     }
-        // }
-
-
     </script>
 
 </body>
