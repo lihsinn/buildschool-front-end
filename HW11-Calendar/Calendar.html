@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="happy.svg">
+    <link rel="stylesheet" href="Modal.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+
+        }
+        
+        body {
+            background:#fff;
+            font-family: 'Roboto';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin:auto;
+            padding: 10px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card-header {
+            background: #fff;
+            color:black;
+            position:relative;
+            height: 50px;
+            font-size: 20px;
+            padding: 0px 20px 0px 0px ;
+            display: flex;
+
+        }
+        .prevandnextMonth{
+            padding: 0 20px 0 10px;
+        }
+
+        .card-header .prev,
+        .card-header .next {
+            padding: 4px 10px 4px;
+            color:#666;
+            cursor: pointer;
+        }
+        .card-header .prev:hover,
+        .card-header .next:hover {
+            border-radius: 50px;
+            background-color: rgb(231, 231, 231);
+        }
+
+        #monthAndYear{
+            font-family: "微軟正黑體";
+        }
+        .card-body{
+            background: #ffffff;
+            width: 1000px;      
+            height: 600px;   
+        }
+        .calendar-body {
+            cursor: pointer;
+        }
+        /* 週 */
+        .card-body .week span {
+            font-size: 13px;
+            color:#bbb;
+            display: inline-block;
+            padding-top:5px ;
+            
+        }
+
+        /* 日期格子的高 */
+        .card-body .dates{
+            height: 20%;
+            
+        }
+        /* 事件欄 */
+        .event{
+            
+            height: 80%;
+        }
+
+        /* 日期 */
+        .card-body .dates span{
+            margin: 0 auto;
+            color:#222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            box-sizing: border-box;
+            font-family: "微軟正黑體";
+            cursor: pointer;
+        }
+        .card-body .dates span:hover:not(.todydate) {
+            background-color:#ddd;
+            border-radius: 50px;
+            
+        }
+        /* 今天日期樣式 */
+        .todydate{
+            background-color: #4285F4;
+            width: 10px;
+            border-radius: 50px;
+            color:#fff !important;
+        }
+        .todydate:hover{
+            background-color: #1c62d3;
+            width: 10px;
+            border-radius: 50px;
+            color:#fff !important;
+        }
+  
+        
+        
+    
+        .table{
+            border: #ccc;
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+
+        }
+
+        th {
+            
+            background: #fff;
+            border-top:1px solid#ccc; 
+            border-left: 1px solid#ccc; 
+            border-right:1px solid#ccc; 
+            border-bottom: none;
+        }
+        td {
+            padding: 0.5em;
+            background: #fff;
+            border-top:none; 
+            border-left: 1px solid#ccc; 
+            border-right:1px solid#ccc; 
+            border-bottom:1px solid#ccc;
+        }
+        td:nth-child(1){
+            height: 30px;
+        }
+
+        .table thead{
+            border-radius: 5px 0 0 0;
+            border: none;
+        }
+        
+        .goToday{
+            display: flex;
+            justify-content: center;
+            width: 100px;
+            height: 30px;
+    
+            border-radius: 5px;
+            color:#ccc;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+       
+
+        .showEvent:hover{
+            content: "Add Schedule";
+            background-color: rgba(88, 124, 255, 0.3);
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-header" id="calendar">
+                        <div class="goToday">
+                            <span>今天</span>
+                        </div>
+                        <div class="prevandnextMonth">
+                            <span class="prevMonth prev">❮</span>
+                            <span class="nextMonth next">❯</span>
+                        </div>
+                        <span><strong id="monthAndYear">Month And Year</strong></span>
+                    </div>
+                    <div class="card-body">
+                        <table class="table" cellspacing="0" border="1" >
+                            <thead class="week">
+                                <tr>
+                                    <th><span>週日</span></th>
+                                    <th><span>週一</span> </th>
+                                    <th><span>週二</span> </th>
+                                    <th> <span>週三</span> </th>
+                                    <th> <span>週四</span> </th>
+                                    <th><span>週五</span></th>
+                                    <th><span>週六</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="dates" id="calendar-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- The Modal -->
+    <!-- <div id="myModal" class="modal"> -->
+
+        <!-- Modal content -->
+        <!-- <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <p>Edit my schedule</p>
+                <input type="time" id="time">
+                <input type="text" id="todo">
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
+        </div>
+
+    </div> -->
+
+
+    <!-- <div class="modal" tabindex="-1" id="modal-content">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header m-s-auto">
+              <h5 class="modal-title">Schedule Management</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Edit my schedule</p>
+              <input type="time" id="time">
+              <input type="text" id="todo">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="saveBtn" onclick="saveBtn()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    <script type="module">
+        //import module
+        import {$g,$c,$ctn} from "../Modules/helpers.js"
+
+        let today = new Date();
+        let currentMonth = today.getMonth();
+        let currentYear = today.getFullYear();
+        //所有月份
+        let months = ['1月', '2月', '3月', "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+
+        let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let monthAndYear = $g('#monthAndYear');
+        let prev = $g('.prev');
+        let next = $g('.next');
+        let goToday = $g('.goToday');
+
+
+        
+        window.onload = function () {
+            showCalendar(currentMonth, currentYear);
+        }
+
+
+        function showCalendar(month, year) {
+            //firstDay第一天是星期幾  
+            //getDay() 取得星期 : 星期日 = 0, 星期一 = 1, 星期二 = 2, 星期三 = 3, 星期四 = 4,星期五 = 5, 星期六 = 6
+            // new Date(2020, 1) 都會建立代表 2020-02 的物件
+            let firstDayOfMonth = new Date(year, month).getDay();
+
+            //daysInMonth這個月有幾天
+            //getDate() 取得日(天) 1~31
+            // new Date(2020, 2) 都會建立代表 2014-02-01 的物件
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            //先清空date的資料
+            let calendarBody = $g('#calendar-body');
+            calendarBody.innerHTML = '';
+            //年月的內容置換為 = months[month=0:'Jan', 1:'Feb', 2:'Mar', 3:"Apr", 4:"May", 5:"June", 6:"July", 7:"Aug", 8:"Sep", 9:"Oct", 10:'Nov', 11:'Dec']
+            monthAndYear.innerHTML = year +"年"+months[month];
+
+            //
+            let date = 1;
+
+
+            //i=0~5 :生出6週
+            //let fDay = firstDayOfMonth ? (firstDayOfMonth - 1) : 6;
+            let fDay = firstDayOfMonth-1;
+                      //Math.floor回傳小於等於所給數字的最大整數。
+            let weeksNum = Math.floor((daysInMonth + fDay) / 7);
+            //console.log("("+daysInMonth +"+"+ fDay+")" +"/"+7 +"="+weeksNum);
+            
+
+            for (let i = 0; i <weeksNum+1; i++) {
+                //生一個tr
+                let row = $c('tr');
+
+                //j=0~6 :星期日0~星期六6
+                for (let j = 0; j < 7; j++) {
+                    //如果i=0(是第一週)，且j<firstDayOfMonth第一天的星期
+                    if (i == 0 && j < firstDayOfMonth) {
+                        //生一個td
+                        let td = $c('td');
+                        //但不用寫日子
+                        let tdText = $ctn('');
+                        td.appendChild(tdText);
+                        row.appendChild(td);
+                    }
+                    //若date大於daysInMonth這個月有幾天，跳出迴圈
+                    else if (date > daysInMonth) {
+                        break;
+                    }
+                    //若date還沒到達daysInMonth這個月有幾天
+                    else {
+                        //生一個td
+                        let td = $c('td');
+                        //生一個span
+                        let span = $c('span');
+                        //生一個div
+                        let event = $c('div');
+                        event.classList.add('event');
+                        //把日子加進去
+                        let tdText = $ctn(date);
+                        //.classList選到他的class="", .add新增一個class叫showEvent
+                        // td.classList.add('showEvent');
+                        // td.onclick = showEvent;
+                        //td.setAttribute("onclick",showEvent) //不行??
+
+                        //讓今天的那一格有特別的樣式
+                        //today = new Date() :表示現在的Date 
+                        if (date == today.getDate() && year == today.getFullYear() && month == today.getMonth()) {
+                            span.classList.add('todydate');
+                        }
+                        td.appendChild(span).appendChild(tdText);
+                        td.appendChild(event);
+                        row.appendChild(td);
+                        date++
+                    }
+                }
+                //再重新加上date的資料
+                calendarBody.appendChild(row);
+            }
+
+        }
+
+        
+
+
+
+        prev.addEventListener('click', function () {
+            currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+            currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+            showCalendar(currentMonth, currentYear);
+          
+        })
+
+        next.addEventListener('click', function () {
+            //現在的年 = 現在的月是11嗎(12月)? 是: 現在的年+1，不是:現在的年
+            currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+            //新的的月 = (現在的月+1) / 12 的餘數 (如果(現在的月+1)是12餘數是0(等於下個月是1月))
+            //(如果(現在的月+1)是11餘數是11(等於下個月是12月)
+            currentMonth = (currentMonth + 1) % 12;
+            showCalendar(currentMonth, currentYear);
+        });
+
+
+        goToday.addEventListener('click', function () {
+            showCalendar(today.getMonth(), today.getFullYear());
+        });
+
+
+
+
+     
+
+        
+        // let myModal_Span = new bootstrap.Modal(document.getElementById('modal-content_span'), {keyboard: false})
+
+        // function saveBtn() {
+        //     time = document.getElementById('time').value;
+        //     todo = document.getElementById('todo').value;
+        //     if (time == "" || todo == "") {
+        //         alert("隢贝撓�交���枏�𠰴�颲虫�钅�!")
+        //         return;
+        //     }
+        //     SaveData();
+        //     refresh();
+        //     Load();
+        // }
+        // function saveEditedBtn() {
+        //     let time_span = document.getElementById("time_span").value;
+        //     let todo_span = document.getElementById("todo_span").value;
+        //     if (time_span == "" || todo_span == "") {
+        //         alert('隢贝撓�交���栞�笔�颲虫�钅�!');
+        //         return;
+        //     }
+        //     edit(targetId);
+        //     myModal_Span.hide();
+        //     refresh();
+        //     Load();
+        // }
+
+
+
+        // // -------Modal-------
+        // // Get the modal
+        // var modal = document.getElementById("myModal");
+
+        // // Get the button that opens the modal
+        // var btn = document.getElementById("myBtn");
+
+        // // Get the <span> element that closes the modal
+        // var span = document.getElementsByClassName("close")[0];
+
+        // // When the user clicks the button, open the modal 
+        // function showEvent() {
+        //     modal.style.display = "block";
+        // };
+
+
+        // // When the user clicks on <span> (x), close the modal
+        // span.onclick = function () {
+        //     modal.style.display = "none";
+        // }
+
+        // // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function (event) {
+        //     if (event.target == modal) {
+        //         modal.style.display = "none";
+        //     }
+        // }
+
+
+    </script>
+
+</body>
+
+</html>
