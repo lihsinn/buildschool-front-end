@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>觀光景點查詢</title>
+  <!-- leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <!-- markercluster -->
+  <link href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+  </link>
+  <link href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+  </link>
+  <!-- react -->
+  <script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  <!--style.css-->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="side-menu">
+        <span class="side-menu-btn fas fa-chevron-left"></span>
+        <div class="selector-group">
+          <!--縣市選取器套件-->
+          <!-- data-county-value="臺北市"  -->
+          <div role="tw-city-selector" class="selector" data-county-value="" data-standard-words>
+          </div>
+          <button class="button-select">選擇</button>
+          <button class="button-all">顯示全部</button>
+        </div>
+        <!--左側結果-->
+        <div class="result" id="resultHeight"></div>
+      </div>
+      <!--地圖-->
+      <div id="map"></div>
+    </div>
+  </div>
+  <div class="loading">
+    <div class="circle">
+    </div>
+    <span> 讀取中...</span>
+  </div>
+</body>
+
+<!-- leaflet -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<!-- markercluster -->
+<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<!--縣市選取器套件-->
+<script src="https://cdn.jsdelivr.net/npm/tw-city-selector@2.1.1/dist/tw-city-selector.min.js"></script>
+<!--script.js-->
+<script src="script.js"></script>
+
+
+</html>
