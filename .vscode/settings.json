@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/29886728-ee7f-4618-80d3-188654387a42/resourceGroups/2021Web/providers/Microsoft.Web/sites/bsLab",
+    "appService.deploySubpath": "HW8-Pokemon-Template"
+}
